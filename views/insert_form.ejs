@@ -1,0 +1,45 @@
+
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/edit_form.css' />
+    <style> 
+      input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+      </style>
+  </head>
+  <body>
+    <h1></h1>
+    <head>
+      <meta charset="utf-8">
+      <title>ATN Shop</title>
+      <link rel="stylesheet" type="text/css" href="edit_form.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head> 
+  <body>
+    <h1>EDIT PRODUCT</h1>
+    <div class="product_detail">
+      <form action='/users/insert' method="POST">
+        <label> Product Name </label>
+        <input type="text" placeholder="Enter Product Name" name="product_id">
+        <label> Product ID </label>
+        <input type="text" placeholder="Enter Product Id" name="product_name">
+        <label> Price </label>
+        <input type="text" placeholder="Enter Price" name="price" >
+        <label> Amount </label>
+        <input type="text" placeholder="Enter Amount" name="amount">
+        <label> Shop name </label>
+        <input type="text" placeholder="Enter Shop Name" name="shop_name">
+        
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

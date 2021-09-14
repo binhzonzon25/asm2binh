@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('head', { title: 'Authentication Page' }) -%>
+    <title>WELCOME TO SHOP</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel='stylesheet' href='/stylesheets/user_fe.css' />
+  </head>
+  <body>
+    <h2 class="header1">Sales List Management</h2>
+    <%
+    //Display data table by JavaScript
+    if (userData.rowCount == 0)
+    {
+    %>  
+    <p>No data found</p>
+    <%  
+    } else {
+      // Display table header
+    %> 
+    <style type="text/css">
+      table, th, td{
+          border:1px solid #868585;
+      }
+      table{
+          border-collapse:collapse;
+          width:100%;
+      }
+      th, td{
+          text-align:left;
+          padding:10px;
+      }
+      table tr:nth-child(odd){
+          background-color:#eee;
+      }
+      table tr:nth-child(even){
+          background-color:white;
+      }
+      table tr:nth-child(1){
+          background-color:skyblue;
+      }
+  </style>
+    
+    <table border="1">
+      <tr>
+        <th>Product Name</th>
+        <th>Product Id </th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Shop Name</th>
+        <th>Edit/Insert</th>
+        <th>Delete</th>
+      </tr>
+    <%  
+      // Display all rows , Object data : userData
+      //all rows: userData.rows, list array [...]
+      userData.rows.forEach( function(row) {
+        //Display a row
+        console.log(row);
+    %>
+      <tr>
+        <td><%= row.product_id %></td>
+        <td><%= row.product_name %></td>
+        <td><%= row.price %></td>
+        <td><%= row.amount %></td>
+        <td><%= row.shop_name %></td>
+        <td><a href='users/edit/<%= row.product_name%>'>Edit</a> </td>
+        <td><a href='users/delete/<%= row.product_name%>'>Delete</a> </td>
+      </tr>
+    <%
+      });
+    %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href='users/insert'>Insert</a> </td>
+      </tr>
+    </table> 
+    <%
+    }
+     %>
+    
+  </body>
+</html>
+<%- include('foot') -%>
+
